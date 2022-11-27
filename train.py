@@ -42,7 +42,7 @@ class Solver():
 
             for _, (data, targets) in enumerate(loop):
                 data = data.to(self.dev)
-                targets = targets.float().unsqueeze(1).to(self.dev)
+                targets = targets.float().to(self.dev)
                 preds = self.model(data)
                 loss = self.loss_fn(preds, targets)
 
@@ -59,7 +59,7 @@ class Solver():
                 self.save()
 
             print("Epoch [{}/{}], Val dice_score: {:.3f}".format(epoch+1, opt.n_epoch, val_score))
-            print("Best : {:.2f} @epoch {}".format(self.best_score, self.best_epoch+1))
+            print("Best socre : {:.2f} @epoch {}".format(self.best_score, self.best_epoch+1))
 
 
     @torch.no_grad()
