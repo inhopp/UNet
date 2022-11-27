@@ -31,7 +31,7 @@ class UNET(nn.Module):
             in_channels = feature
 
         # Up part of UNET
-        for feature in features:
+        for feature in reversed(features):
             self.ups.append(nn.ConvTranspose2d(feature*2, feature, kernel_size=2, stride=2))
             self.ups.append(DoubleConv(feature*2, feature))
 
