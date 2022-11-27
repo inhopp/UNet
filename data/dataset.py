@@ -3,6 +3,7 @@ import csv
 import numpy as np
 from PIL import Image
 import torch.utils.data as data
+import torchvision.transforms as transforms
 
 class Dataset(data.Dataset):
     def __init__(self, opt, phase, transform=None):
@@ -28,7 +29,9 @@ class Dataset(data.Dataset):
 
         if self.transform is not None:
             image = self.transform(image)
+            image = transforms.Normalize((0.0,0.0,0.0), (1.0,1.0,1.0))(image)
             mask = self.transform(mask)
+            mask = transforms.Normalize((0.0), (1.0))(mask)
 
         return image, mask
 

@@ -6,9 +6,6 @@ def generate_loader(phase, opt):
     dataset = Dataset
     img_size = opt.input_size
 
-    mean = (0.0, 0.0, 0.0)
-    std = (1.0, 1.0, 1.0)
-
     if phase == 'train':
         transform = transforms.Compose([
             transforms.ToPILImage(),
@@ -16,7 +13,6 @@ def generate_loader(phase, opt):
             transforms.RandomHorizontalFlip(),
             transforms.RandomVerticalFlip(),
             transforms.ToTensor(),
-            transforms.Normalize(mean, std)
         ])
 
     else:
@@ -24,7 +20,6 @@ def generate_loader(phase, opt):
             transforms.ToPILImage(),
             transforms.Resize(img_size),
             transforms.ToTensor(),
-            transforms.Normalize(mean, std)
         ])
 
     dataset = dataset(opt, phase, transform=transform)
