@@ -19,8 +19,8 @@ class Dataset(data.Dataset):
 
     
     def __getitem__(self, index):
-        img_path = os.path.join(self.data_dir, self.data_name, self.phase, self.data[index])
-        mask_img_path = os.path.join(self.data_dir, self.data_name, self.phase + '_mask', self.data[index])
+        img_path = os.path.join(self.data_dir, self.data_name, self.phase, self.data[index][0])
+        mask_img_path = os.path.join(self.data_dir, self.data_name, self.phase + '_mask', self.data[index][0])
 
         image = np.array(Image.open(img_path).convert("RGB"))
         mask = np.array(Image.open(mask_img_path).convert("L"), dtype=np.float32)
