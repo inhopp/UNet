@@ -20,7 +20,6 @@ def parse_args():
     parser.add_argument("--weight_decay", type=float, default=0)
     parser.add_argument("--n_epoch", type=int, default=5)
     parser.add_argument("--num_workers", type=int, default=2)
-    parser.add_argument("--eval_epoch", type=int, default=1)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--eval_batch_size", type=int, default=16)
 
