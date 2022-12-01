@@ -62,3 +62,10 @@ python3 inference.py
     --num_workers {}(default: 2) \
     --eval_batch_size {}(default: 16)
 ```
+
+
+<br>
+
+
+#### Main Reference
+https://github.com/aladdinpersson/Machine-Learning-Collection
